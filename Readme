@@ -1,0 +1,1 @@
+Sistema de Atendimento ao cliente, com chat em tempo real incluso  para utilizar o projeto basta -> <ul>    <li> Clonar repositorio    <li> Rodar no terminal -> Docker compose up --build --remove-orphans    <li>  docker exec -it app python manage.py migrates  </ul>
