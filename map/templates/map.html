@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+</head>
+<body class="bg-[#F8FBFF] ">
+
+    {% if option %}
+        {% if option == "horario" %}
+            <div class="flex justify-center">
+                <div class="mt-[5%] w-[40%]">
+                    <div class="font-medium text-[30px] text-center mb-4">
+                        Servico de atendimento ao viajante.
+                    </div>
+                    <div class="p-6 rounded bg-white shadow-xl">
+                        <div class="grid grid-cols-1">
+                            <div class=" w-full">
+                                Tire suas duvidas relacionadas a horarios.
+                            </div>
+        
+                           
+                            
+                        </div>
+                        <div>
+                            Insira para qual horario seu voo esta marcado:
+                        </div>
+                        <div class="w-full mt-6 shadow-lg border border-1 border-gray">
+                           
+
+                            <div>
+                               <input id="date_time" class="w-full" type="datetime-local" name="" id="">
+                                
+                            </div>
+                                
+                               
+                            
+                        </div>
+                        
+                        <div id="result_hour">
+
+                        </div>
+                    
+                        <div  class="mt-4 p-4 mt-2 shadow-lg bg-[#33eb91] border border-1 border-gray">
+                            <button id="date_btn" type="submit" class="text-white">
+                                Proximo
+                            </button>
+                        </div>
+
+                        <div  class="mt-4 p-4 mt-2 shadow-lg bg-[#33eb91] border border-1 border-gray">
+                            <a href="{% url 'map' %}" class="text-white w-full">
+                                    Retornar
+                            </a>
+                        </div>
+                        
+    
+                        <div  class="mt-4 p-4 mt-2 shadow-lg bg-white border border-1 border-[#33eb91]">
+                            <a href="{% url 'homepage' %}" class="text-[#33eb91]">
+                                Atendimento em tempo-real<i class="ml-2 bi bi-chat-left-text-fill"></i>
+                            </a>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        {% endif %}
+
+        {% if option == "bagagem" %}
+            <div class="flex justify-center">
+                <div class="mt-[5%] w-[40%]">
+                    <div class="font-medium text-[30px] text-center mb-4">
+                        Servico de atendimento ao viajante.
+                    </div>
+                    <div class="p-6 rounded bg-white shadow-xl">
+                        <div class="grid grid-cols-1">
+                            <div class=" w-full">
+                                Tire suas duvidas relacionadas a suas bagagens.
+                            </div>
+        
+                        
+                            
+                        </div>
+
+                        <input class="hidden" name="form" value="form_one" type="text">
+
+                        <div class=" p-4 mt-6 shadow-lg border border-1 border-gray">
+                            <div>
+                                <input name="escolha" value="tipo_bagagem" type="radio" name="" id="">
+                                <span>Tipos de bagagem</span>
+                            </div>
+                        </div>
+                        <div id="result_one" class="hidden bg-white border border-1 border-gray text-black px-4 py-4">
+                            <div id="close_one" class="flex justify-end mb-2">
+                                X
+                            </div>
+                            Nas viagens de avião existem dois tipos de bagagem: a despachada (ou de porão) e a bagagem de mão. É importante saber a diferença entre elas e as regras próprias, pois determinados itens só podem ser despachados, enquanto outros recomenda-se que sempre sejam levados na mala de mão
+                        </div>
+                        <div class=" p-4 mt-2 shadow-lg border border-1 border-gray">
+                            <input name="escolha" value="despacho" type="radio" name="" id="">
+                                <span>O que é bagagem despachada?</span>
+                        </div>
+                        <div id="result_two" class="hidden bg-white border border-1 border-gray text-black px-4 py-4">
+                            <div id="close_two" class="flex justify-end mb-2">
+                                X
+                            </div>
+                            São as malas maiores, que vão no bagageiro do avião. Elas são entregues na hora que você faz o check-in no aeroporto de embarque e são devolvidas ao passageiro no destino. Quando o passageiro despacha a mala, ele recebe um comprovante, que deve ser guardado para conferência ou no caso da mala se extraviar (não chegar no destino). Chegando ao aeroporto de destino, o passageiro deve ir à esteira de seu voo e aguardar sua mala. Quando ela chegar, confira a etiqueta com o seu nome, pois pode haver malas iguais à sua. Adesivos, plásticos ou etiquetas de viagem com seu nome e telefone são boas formas de evitar a troca de malas.
+                        </div>
+                        <div class=" p-4 mt-2 shadow-lg border border-1 border-gray">
+                            <input name="escolha" value="pegar_despacho" type="radio" name="" id="">
+                                <span>Em voos com conexão, onde pego a bagagem despachada?</span>
+                        </div>
+                        <div id="result_3" class="hidden bg-white border border-1 border-gray text-black px-4 py-4">
+                            <div id="close_3" class="flex justify-end mb-2">
+                                X
+                            </div>
+                            Esta é uma dúvida muito comum e não há uma regra fixa. Na hora do check-in, a companhia aérea informa ao passageiro onde ele irá retirar sua bagagem. Normalmente é no aeroporto do destino final, mas há casos em que se retira na conexão para se despachar novamente. Por exemplo: um voo de Porto Alegre a Madri com conexão em São Paulo. O passageiro vai despachar a mala em Porto Alegre e a empresa vai informar se será necessário retirar a mala em São Paulo ou apenas em Madri. No voo de volta, o mesmo ocorre em Madri. Vale destacar que nos voos com chegada ao Brasil geralmente o passageiro retira a mala no primeiro aeroporto, por conta da fiscalização alfandegária – no nosso exemplo seria em São Paulo – '
+                            'e despacha novamente. Para casos em que o passageiro faz troca de aeroporto, por exemplo: Curitiba – São Paulo (Congonhas) e em seguida São Paulo (Guarulhos) – Fortaleza, o passageiro fica responsável por retirar a bagagem na conexão e transportá-la até o aeroporto de onde sairá o próximo voo e despachá-la novamente.'
+                        </div>
+                        <div class=" p-4 mt-2 shadow-lg border border-1 border-gray">
+                            <input name="escolha" value="peso_mala" class="" type="radio" name="" id="">
+                                <span> Qual o limite de peso e malas que posso despachar?'</span>
+                        </div>
+                        <div id="result_4" class="hidden bg-white border border-1 border-gray text-black px-4 py-4">
+                            <div id="close_4" class="flex justify-end mb-2">
+                                X
+                            </div>
+                            Como vimos, isso vai depender da companhias aérea e da classe tarifária da sua passagem. Se não tiver visto na hora da compra, essa informação estará em sua reserva ou no site da companhia. Se não encontrar, você pode ligar para a companhias aérea ou para a agência de viagens para verificar. De uma forma geral:Voos nacionais – Geralmente, as passagens promocionais ou mais baratas não incluem o despacho de bagagem na Azul, Gol e Latam. Caso precise despachar uma ou mais malas, o passageiro terá de comprar à parte pelo passageiro ou optar por uma tarifa mais cara, que inclua a bagagem.  Fique atento na hora que comprar a passagem, e se possível (e necessário) já adquira a tarifa com despacho da bagagem incluso, pois geralmente é mais barato. Se você comprar a tarifa que não inclui bagagem e decidir utilizar o serviço posteriormente, adquira o serviço o quanto antes pois o custo será menor. Confira dicas para evitar a cobrança de bagagem despachada em voos nacionais. Voos internacionais – Não existe uma franquia mínima de bagagem despachada por lei, mas algumas companhias aéreas permitem que o passageiro despache uma ou até duas malas sem custo adicional, dependendo da classe da passagem. Em geral, a regra é que os bilhetes mais baratos ou promocionais não ofereçam a bagagem, que deve ser comprada à parte, enquanto as tarifas Vale consultar a companhia pela qual se vai viajar antes de ir para o aeroporto para evitar surpresas desagradáveis. A dica de adquirir a tarifa que já inclui bagagem ou adicionar a franquia o quanto antes também é válida. Confira dicas para evitar a cobrança de bagagem em voos internacionais.
+                        </div>
+                        
+                        <div  class="mt-4 p-4 mt-2 shadow-lg bg-[#33eb91] border border-1 border-gray">
+                            <a href="{% url 'map' %}" class="text-white w-full">
+                                    Retornar
+                            </a>
+                        </div>
+
+
+                        
+
+                        <div  class="mt-4 p-4 mt-2 shadow-lg bg-white border border-1 border-[#33eb91]">
+                            <a href="{% url 'homepage' %}" class="text-[#33eb91]">
+                                Atendimento em tempo-real<i class="ml-2 bi bi-chat-left-text-fill"></i>
+                            </a>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        {% endif %}
+
+        {% if option == "duvidas" %}
+            <div class="flex justify-center px-[8%] py-[4%] flex flex-col">
+                <div class="mt-[0%] ">
+                    <div class="font-medium text-[30px] text-center mb-4">
+                        Servico de atendimento ao viajante.
+                    </div>
+                    <div class="">
+                        <div class="grid grid-cols-1">
+                            <div class=" w-full">
+                                Tire suas duvidas relacionadas a sua viagem.
+                            </div>
+        
+                        
+                            
+                        </div>
+
+                        <p class="font-bold">PASSO A PASSO: O QUE FAZER QUANDO CHEGAR AO AEROPORTO?</p>
+                        <div class="mt-4 grid grid-cols-3 gap-4 ">
+                            <div class="h-[250px] ">
+                                <p class="bg-white   h-[250px] overflow-hidden shadow p-4   ">1 - Pode parecer óbvio, mas é extremamente importante chegar cedo   Bem, para começar, é primordial reforçar aqui a importância de se organizar direitinho e chegar ao aeroporto com antecedência. Essa antecedência é um pedido também das companhias aéreas, já que, uma vez lá, será preciso fazer o check-in – caso você não queira fazer o check-in on-line – e despachar as bagagens. E sabe o que isso significa? Que talvez seja necessário encarar algumas filas. Sendo assim, nada melhor do que passar por tudo isso com tranquilidade e sem ter que correr contra o tempo.
+                                </p>
+                                <div  class="mt-4 p-4 mt-2 shadow-lg bg-[#33eb91] border border-1 border-gray">
+                                    <button id="bagagem_btn" type="submit" class="text-white">
+                                        Ver mais...
+                                    </button>
+                                </div> 
+                            </div>
+                            <div class="h-[250px]  ">
+                                <p class="bg-white  h-[250px] overflow-hidden shadow p-4"> 
+                                    2 - Hora do check-in  Em primeiro lugar, que tal entender o que, de fato, é o check-in? Ele nada mais é do que a confirmação da sua presença no voo. Pode ser feito no próprio aeroporto, nos totens das companhias aéreas, assim como nos balcões de atendimento da empresa da qual você comprou o bilhete. Quem preferir também pode fazer pela internet, por meio do site ou do app da companhia aérea. Isso porque ele costuma ser liberado alguns dias antes da viagem 
+                                    Confirmação feita? Joia! Você terá acesso, então, a um cartão de embarque, documento que reúne todas as informações do seu voo e que pode ser impresso ou digital. É nele que consta um tipo de código que autoriza sua entrada às salas de embarque. \n'
+                                    'Assim que você tiver o seu cartão de embarque em mãos saberá para qual portão deve ir e a que horas. Encontrar os portões não é nenhum bicho de sete cabeças: os números são bem grandes e visíveis. De toda forma, se não estiver encontrando o seu, é só pedir ajuda pra qualquer funcionário que ele provavelmente saberá te indicar a direção certa.
+                                </p>
+                                
+                                <div  class="mt-4 p-4 mt-2 shadow-lg bg-[#33eb91] border border-1 border-gray">
+                                    <button id="bagagem_btn" type="submit" class="text-white">
+                                         Ver mais...
+                                    </button>
+                                </div> 
+                            </div>
+                            <div class="h-[250px] ">
+                                <p class="bg-white  h-[250px]  overflow-hidden shadow p-4">
+                                    3- Não se esqueça de despachar a bagagem\n Após o check-in, o próximo item da lista de o que fazer quando chegar ao aeroporto é despachar a bagagem. Para isso, basta procurar o guichê da sua companhia aérea. Ali as suas malas serão pesadas, etiquetadas, enviadas para a esteira e, posteriormente, para o avião. Inclusive, você receberá um código de rastreio da sua bagagem. Guarde-o com cuidado, pois ele será bem útil em caso de extravio.
+                                </p>
+                               
+                                <div  class="mt-4 p-4 mt-2 shadow-lg bg-[#33eb91] border border-1 border-gray">
+                                    <button id="bagagem_btn" type="submit" class="text-white">
+                                            Ver mais...
+                                    </button>
+                                </div>  
+                            </div>
+                        </div>
+
+                 
+                        
+                    </div>
+                    
+                </div>
+                     
+              <div class="grid grid-cols-2 gap-8 mt-[8%]">
+                <div  class="mt-4 p-4 mt-2 shadow-lg bg-white border border-1 border-[#33eb91]">
+                    <a href="{% url 'homepage' %}" class="text-[#33eb91]">
+                        Atendimento em tempo-real<i class="ml-2 bi bi-chat-left-text-fill"></i>
+                    </a>
+                </div>
+
+                <div  class="mt-4 p-4 mt-2 shadow-lg bg-[#33eb91] border border-1 border-gray">
+                    <a href="{% url 'map' %}" class="text-white w-full">
+                            Retornar
+                    </a>
+                </div>
+                
+              </div>
+            </div>
+        {% endif %}
+
+
+
+    {% else %}
+    <form action="{% url 'map' %}" method="post">
+        {% csrf_token %}
+        <div class="flex justify-center">
+            <div class="mt-[5%] w-[40%]">
+                <div class="font-medium text-[30px] text-center mb-4">
+                    Servico de atendimento ao viajante.
+                </div>
+                <div class="p-6 rounded bg-white shadow-xl">
+                    <div class="grid grid-cols-1">
+                        <div class=" w-full">
+                            Tire suas duvidas relacionadas a sua viagem.
+                        </div>
+    
+                       
+                        
+                    </div>
+
+                    <input class="hidden" name="form" value="form_one" type="text">
+
+                    <div class=" p-4 mt-6 shadow-lg border border-1 border-gray">
+                        <div>
+                            <input name="escolha" value="horario" type="radio" name="" id="">
+                            <span>Horários</span>
+                        </div>
+                    </div>
+                    <div class=" p-4 mt-2 shadow-lg border border-1 border-gray">
+                        <input name="escolha" value="bagagem" type="radio" name="" id="">
+                            <span>Bagagem</span>
+                    </div>
+                    <div class=" p-4 mt-2 shadow-lg border border-1 border-gray">
+                        <input name="escolha" value="duvidas" type="radio" name="" id="">
+                            <span>Dúvidas de primeira viagem</span>
+                    </div>
+                  
+                    
+                    <div  class="mt-4 p-4 mt-2 shadow-lg bg-[#33eb91] border border-1 border-gray">
+                        <button type="submit" class="text-white">
+                            Proximo
+                        </button>
+                    </div>
+                    
+
+                    <div  class="mt-4 p-4 mt-2 shadow-lg bg-white border border-1 border-[#33eb91]">
+                        <a href="{% url 'homepage' %}" class="text-[#33eb91]">
+                            Atendimento em tempo-real<i class="ml-2 bi bi-chat-left-text-fill"></i>
+                        </a>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+    </form>
+    {% endif %}
+    
+    
+    <script>
+        let button_date = document.querySelector("#date_btn")
+        if(button_date){
+            button_date.addEventListener("click",()=>{
+                let date_time = document.querySelector("#date_time").value
+                let result_hour = document.querySelector("#result_hour")
+                const dataHora = date_time.replace("T"," ");
+                const [data, hora] = dataHora.split(" "); // data = "2023-04-26", hora = "00:57"
+                const [ano, mes, dia] = data.split("-"); // ano = "2023", mes = "04", dia = "26"
+                const dataFormatada = `${dia}/${mes}/${ano.substr(2)}`; // "26/04/23"
+                const [hora_split, minuto_split] = hora.split(":")
+                let chegada_previa = Number(hora_split) - 2
+                let chegada_internacional = Number(hora_split) - 3
+                chegada_previa = `${chegada_previa}:${minuto_split}`
+                chegada_internacional = `${chegada_internacional}:${minuto_split}`
+                result_hour.innerHTML = `EMBARQUE DATA: ${dataFormatada} e HORA: ${hora} <br>
+                                         CHEGADA PREVIA : ${chegada_previa} <br>
+                                         CHEGADA INTERNACIONAL : ${chegada_internacional} <br>
+                                         A Anac recomenda chegar ao aeroporto com antecedência de pelo menos 2 horas para voos nacionais então chegue aeroporto às ${chegada_previa} horas
+                                         Caso seu voo seja intenacional chegue ${chegada_internacional}, pois a nac recomenda chegar ao aeroporto com antecedência de pelo menos 3 horas de antecedência para viagens internacionais                                                             
+                                         `
+            })
+            
+        }
+
+        let bagagem_btn = document.querySelector("#bagagem_btn")
+        if(bagagem_btn){
+            bagagem_btn.addEventListener("click",()=>{
+                escolha = document.querySelector('input[name="escolha"]:checked')
+                if(escolha.value == "tipo_bagagem"){
+                    let result= document.querySelector("#result_one")
+                    result.classList.remove("hidden")
+                }else if(escolha.value == "despacho"){
+                    let result = document.querySelector("#result_two")
+                    result.classList.remove("hidden")
+                }else if(escolha.value == "pegar_despacho"){
+                    let result = document.querySelector("#result_3")
+                    result.classList.remove("hidden")
+                }else if(escolha.value == "peso_mala"){
+                    let result = document.querySelector("#result_4")
+                    result.classList.remove("hidden")
+                }
+            })
+
+            let close_one = document.querySelector("#close_one")
+            let close_two = document.querySelector("#close_two")
+            let close_3 = document.querySelector("#close_3")
+            close_one.addEventListener("click",()=>{
+                let result = document.querySelector("#result_one")
+                    result.classList.add("hidden")
+            })
+
+            close_two.addEventListener("click",()=>{
+                let result = document.querySelector("#result_two")
+                    result.classList.add("hidden")
+            })
+
+            close_3.addEventListener("click",()=>{
+                let result = document.querySelector("#result_3")
+                    result.classList.add("hidden")
+            })
+
+            close_4.addEventListener("click",()=>{
+                let result = document.querySelector("#result_4")
+                    result.classList.add("hidden")
+            })
+            
+        }
+
+        
+            
+    </script>
+
+</body>
+</html>
